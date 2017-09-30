@@ -57,6 +57,14 @@ Route::get('update-anggota', function(){
   $user->anggota->save();
 });
 
+Route::get('delete-anggota', function(){
+  $user = \App\User::find(1);
+  //Hapus data yang berelasi dengannya dulu, dalam hal ini yang berelasi dengan user adalah Angota
+  $user->anggota->delete();
+  //Setelah data yang berelasi dihapusa maka hapus data induknya
+  $user->delete();
+});
+
 Route::get('/sukamakmur', function(){
   // Versi 1
   // $desa = \App\Desa::where('nama', 'like', '%sukamakmur')->with('kecamatan')->get();
