@@ -17,6 +17,7 @@ class CreateAnggotasTable extends Migration
             $table->increments('id');
             $table->string('nama',50);
             $table->string('alamat');
+            $table->integer('id_user')->unsigned();
             $table->timestamps();
         });
     }

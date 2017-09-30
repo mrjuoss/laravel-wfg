@@ -15,6 +15,9 @@ class CreatePeminjamenTable extends Migration
     {
         Schema::create('peminjamen', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('id_anggota')->unsigned();
+            $table->date('tanggal_pinjam');
+            $table->date('tanggal_kembali');
             $table->timestamps();
         });
     }
